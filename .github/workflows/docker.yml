@@ -25,6 +25,7 @@ on:  # yamllint disable-line rule:truthy
         description: 'Build and publish Docker image'
 
 env:
+  REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
