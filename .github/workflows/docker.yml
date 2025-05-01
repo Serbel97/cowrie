@@ -37,7 +37,9 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      id-token: write  # Required for cosign OIDC
+      id-token: write
+      packages: write
+      attestations: write
 
     steps:
       - name: Checkout
@@ -73,7 +75,7 @@ jobs:
         id: push
         with:
           file: docker/Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
